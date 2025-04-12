@@ -1,0 +1,105 @@
+{% extends 'bai2/base.html' %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'bai2:book_list' %}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ book.title }}</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <div class="card mb-4">
+            <div class="position-relative">
+                <img src="https://via.placeholder.com/400x500?text=Book+Cover" class="card-img-top" alt="{{ book.title }}">
+                <span class="badge bg-danger discount-badge">-20%</span>
+            </div>
+            <div class="card-body text-center">
+                <div class="btn-group w-100">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        <i class="fas fa-heart me-2"></i>Wishlist
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h1 class="display-6">{{ book.title }}</h1>
+        <p class="text-muted">by {{ book.author }}</p>
+        
+        <div class="d-flex align-items-center mb-3">
+            <div class="me-3">
+                <span class="text-primary fs-3 fw-bold">{{ book.price }} VND</span>
+                <span class="text-danger ms-2"><del>1,200,000 VND</del></span>
+            </div>
+            <span class="badge bg-success">In Stock</span>
+        </div>
+
+        <div class="mb-4">
+            <div class="d-flex align-items-center mb-2">
+                <div class="text-warning me-2">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-muted">(24 reviews)</span>
+            </div>
+            <a href="#reviews" class="text-primary">Write a review</a>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Description</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Publisher:</strong> Example Publisher</li>
+                    <li class="list-group-item"><strong>Publication Date:</strong> January 1, 2023</li>
+                    <li class="list-group-item"><strong>Pages:</strong> 320</li>
+                    <li class="list-group-item"><strong>Language:</strong> English</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Shipping & Returns</h5>
+                <p class="card-text">Free shipping on all orders over 500,000 VND. Returns accepted within 30 days.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-12">
+        <h4 class="mb-4">You May Also Like</h4>
+        <div class="row">
+            <!-- Similar books carousel would go here -->
+            <div class="col">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x250?text=Similar+Book" class="card-img-top" alt="Similar Book">
+                    <div class="card-body">
+                        <h5 class="card-title">Similar Book Title</h5>
+                        <p class="card-text text-muted">Author Name</p>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-primary fw-bold">200,000 VND</span>
+                            <span class="text-danger"><del>250,000 VND</del></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

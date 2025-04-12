@@ -1,0 +1,56 @@
+{% extends 'bai2/base.html' %}
+
+{% block title %}Book List{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h2 class="display-5">Our Book Collection</h2>
+        <hr>
+    </div>
+</div>
+
+<div class="row">
+    {% for book in books %}
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card book-card h-100">
+            <div class="position-relative">
+                <img src="https://via.placeholder.com/200x250?text=Book+Cover" class="card-img-top" alt="{{ book.title }}">
+                
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ book.title }}</h5>
+                <p class="card-text text-muted">{{ book.author }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="text-primary fw-bold">{{ book.price }} VND</span>
+                    
+                </div>
+            </div>
+            <div class="card-footer bg-white border-top-0">
+                <a href="{% url 'bai2:book_detail' book.pk %}" class="btn btn-primary w-100">
+                    <i class="fas fa-eye me-2"></i>View Details
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endblock %}
